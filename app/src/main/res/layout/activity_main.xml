@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="40dp">
+
+        <Button
+            android:id="@+id/Add_Card"
+            android:layout_width="match_parent"
+            android:layout_height="155dp"
+            android:background="@android:color/background_dark"
+            android:onClick="onAddCardPress"
+            android:text="Add Card"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Add Card" />
+
+        <Button
+            android:id="@+id/Add_Loyalty"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:background="@android:color/black"
+            android:onClick="onAddLoyaltyPress"
+            android:text="Add Loyalty"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Add Loyalty" />
+
+        <ListView
+            android:id="@+id/ccLV"
+            android:layout_width="match_parent"
+            android:layout_height="122dp" />
+
+        <ListView
+            android:id="@+id/pLV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
