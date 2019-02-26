@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+// This is the Program Array Adapter for Linked Lists (PAALL). It takes the Linked List of
+// Programs (LLP) and converts it to a display view.
 public class PAALL extends ArrayAdapter
 {
     private Context mContext;
@@ -32,6 +34,10 @@ public class PAALL extends ArrayAdapter
 
     @NonNull
     @Override
+    // This function will create the list view to display all the items in the linked list. It
+    // does so by first inflating the blank space with Program data so the Program information can have
+    // somewhere to go. Using getters for the Program Class allows access to the private information
+    // which is then adapted into the appropriate textviews and returned to the screen.
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
     {
         View listItem = convertView;

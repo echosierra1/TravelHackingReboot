@@ -1,4 +1,5 @@
 package com.example.travelhacking;
+// This class details the Program object called in Add_Program.
 
 public class Program
 {

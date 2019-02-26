@@ -1,21 +1,21 @@
 package com.example.travelhacking;
-
+// Class for creating a Linked List of Loyalty Programs.
 public class LLP
 {
     private PNode head;
     private int count;
-
+// Default Node
     public LLP()
     {
         this.head = null;
         this.count = 0;
     }
-
+// Returns length of the Linked List.
     public int length()
     {
         return this.count;
     }
-
+// Returns payload from the specified node.
     public Program getAtIndex(int index)
     {
         PNode currNode = this.head;
@@ -25,7 +25,7 @@ public class LLP
         }
         return currNode.getPayload();
     }
-
+// Adds a new node to the end of the Linked List.
     public void addEnd(Program payload)
     {
         PNode n = new PNode(payload);

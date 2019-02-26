@@ -1,5 +1,6 @@
 package com.example.travelhacking;
 
+// The node creator for the Program Linked List.
 
 public class PNode
 {

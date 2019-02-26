@@ -1,5 +1,6 @@
 package com.example.travelhacking;
 
+// This class details the Card object called in Add_Card.
 public class Card
 {
     private String  Name;

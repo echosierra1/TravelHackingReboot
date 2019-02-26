@@ -1,6 +1,6 @@
 package com.example.travelhacking;
 
-
+// The node creator for the Credit Card Linked List (LLCC).
 public class CCNode
 {
     private Card payload;

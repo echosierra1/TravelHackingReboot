@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+// This is the Credit Card Array Adapter for Linked Lists (CCAALL). It takes the Linked List of
+// Credit Cards (LLCC) and converts it to a display view.
+
 public class CCAALL extends ArrayAdapter
 {
     private Context mContext;
@@ -32,6 +35,10 @@ public class CCAALL extends ArrayAdapter
 
     @NonNull
     @Override
+    // This function will create the list view to display all the items in the linked list. It
+    // does so by first inflating the blank space with Card data so the Card information can have
+    // somewhere to go. Using getters for the Card Class allows access to the private information
+    // which is then adapted into the appropriate textviews and returned to the screen.
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
     {
         View listItem = convertView;

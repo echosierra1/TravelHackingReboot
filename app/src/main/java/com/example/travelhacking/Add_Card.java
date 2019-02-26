@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
+// This class creates a second screen that will take the 4 edittext information pieces and create a
+// local object Card with the entered information. This object is saved to a Credit Card
+// Linked List.
 public class Add_Card extends AppCompatActivity {
 
     private EditText CardName,  CardStartDate, MinSpend, RewardPoints;
@@ -21,6 +23,9 @@ public class Add_Card extends AppCompatActivity {
 
     }
 
+    // This function creates the Card object by converting the edit texts to strings and ints,
+    // saving them to a Card object built from the card class,
+    // and calls Core to save Card to a linked list.
     public void onAddCard(View v)
     {
         String CardName = this.CardName.getText().toString();
