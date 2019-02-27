@@ -52,6 +52,7 @@ public class CCAALL extends ArrayAdapter
         TextView ccStartDate = (TextView)listItem.findViewById(R.id.ccStartDateTV);
         TextView ccMinSpend = (TextView)listItem.findViewById(R.id.ccMinSpendTV);
         TextView ccBonusPoints = (TextView)listItem.findViewById(R.id.ccBonusPointsTV);
+// gives the credit card payload from the linked list.
         Card cc = this.creditCardList.getAtIndex(position);
 
         ccName.setText(cc.getName());

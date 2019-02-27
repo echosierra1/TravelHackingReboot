@@ -50,6 +50,7 @@ public class PAALL extends ArrayAdapter
         TextView pName = (TextView)listItem.findViewById(R.id.programTV);
         TextView pBank = (TextView)listItem.findViewById(R.id.bankTV);
         TextView pBalance = (TextView)listItem.findViewById(R.id.balanceTV);
+// gives the Program payload from the linked list.
         Program p = this.programList.getAtIndex(position);
 
         pName.setText(p.getName());
