@@ -1,12 +1,16 @@
 package com.example.travelhacking;
 
+import com.google.firebase.database.Exclude;
+
+import java.io.Serializable;
+
 // This class details the Card object called in Add_Card.
-public class Card
+public class Card implements Serializable
 {
-    private String  Name;
-    private String  Date;
-    private int     Spend;
-    private int     points;
+    public String  Name;
+    public String  Date;
+    public int     Spend;
+    public int     points;
 
     public Card(String Name, String Date, int Spend, int points)
     {
@@ -17,28 +21,26 @@ public class Card
     }
     public Card()
     {
-        this.Name = "Name";
-        this.Date = "Start Date";
-        this.Spend = -1;
-        this.points = -1;
-    }
 
-    public String getName()
+    }
+    @Exclude
+    public String getCreditName()
     {
         return Name;
     }
-
+    @Exclude
     public String getStart_date() {
         return Date;
     }
-
+    @Exclude
     public int getMin_spend() {
         return Spend;
     }
-
+    @Exclude
     public int getPoint_bonus() {
         return points;
     }
+
 
     public String toString()
     {
@@ -48,6 +50,6 @@ public class Card
     }
     public void display()
     {
-        System.out.println(this.Name + " " + this.Date + " " + this.Spend + " " + this.points);
+        System.out.println("****"+ this.Name + " " + this.Date + " " + this.Spend + " " + this.points);
     }
 }

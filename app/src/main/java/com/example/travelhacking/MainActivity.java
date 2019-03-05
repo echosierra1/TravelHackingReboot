@@ -1,21 +1,83 @@
 package com.example.travelhacking;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
 // Main Activity and Default GUI Screen.
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 // Declared ListViews for Credit Cards and Programs
     private ListView ccLV, pLV;
 
-
-    @Override
-// Creates list views for the credit cards and programs using their custom adapters.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Core.cards.addValueEventListener(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                if (Core.ccfirstrun ==1) {
+
+                    for(DataSnapshot ds : dataSnapshot.getChildren())
+                    {
+                        //de-serialize the card
+                        Card tempCC = ds.getValue(Card.class);
+                        Core.addCreditCard(tempCC);
+                    }
+                    Core.ccfirstrun = 0;
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        Core.programs.addValueEventListener(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                if (Core.pfirstrun == 1) {
+
+                    for(DataSnapshot ds : dataSnapshot.getChildren())
+                    {
+                        //de-serialize the card
+                        Program tempp = ds.getValue(Program.class);
+                        Core.addLoyaltyProgram(tempp);
+                    }
+
+                    Core.pfirstrun =0;
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+// Creates list views for the credit cards and programs using their custom adapters.
 
 
         this.ccLV = (ListView)this.findViewById(R.id.ccLV);

@@ -33,6 +33,7 @@ public class Add_Loyalty extends AppCompatActivity {
 
         Program p = new Program(LoyaltyName,BankAffiliation,CurrentBalance);
         Core.addLoyaltyProgram(p);
+        Core.programs.push().setValue(p);
         this.finish();
     }
 

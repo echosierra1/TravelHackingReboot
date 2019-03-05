@@ -1,11 +1,15 @@
 package com.example.travelhacking;
 // This class details the Program object called in Add_Program.
 
-public class Program
+import com.google.firebase.database.Exclude;
+
+import java.io.Serializable;
+
+public class Program implements Serializable
 {
-    private String  Name;
-    private String  Bank;
-    private int     Balance;
+    public String  Name;
+    public String  Bank;
+    public int     Balance;
 
     public Program(String Name, String Bank, int Balance)
     {
@@ -17,23 +21,22 @@ public class Program
     }
     public Program()
     {
-        this.Name = "Name";
-        this.Bank =  "Bank";
-        this.Balance = -1;
+
 
     }
-
-    public String getName() {
+    @Exclude
+    public String getProgramName() {
         return Name;
     }
-
-    public String getBank() {
+    @Exclude
+    public String getProgramBank() {
         return Bank;
     }
-
-    public int getBalance() {
+    @Exclude
+    public int getProgramBalance() {
         return Balance;
     }
+
     public String toString()
     {
         return "Name: " + this.Name + "Bank: "
@@ -42,6 +45,6 @@ public class Program
     public void display()
     {
 
-        System.out.println(this.Name + " " + this.Bank + " " + this.Balance);
+        System.out.println("****" + this.Name + " " + this.Bank + " " + this.Balance);
     }
 }

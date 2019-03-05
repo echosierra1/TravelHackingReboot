@@ -53,9 +53,9 @@ public class PAALL extends ArrayAdapter
 // gives the Program payload from the linked list.
         Program p = this.programList.getAtIndex(position);
 
-        pName.setText(p.getName());
-        pBank.setText(p.getBank());
-        pBalance.setText("" + p.getBalance());
+        pName.setText(p.getProgramName());
+        pBank.setText(p.getProgramBank());
+        pBalance.setText("" + p.getProgramBalance());
         //return the View after we have set all of the values
         return listItem;
     }
