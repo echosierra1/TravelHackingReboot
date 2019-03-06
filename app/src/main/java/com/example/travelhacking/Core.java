@@ -1,8 +1,10 @@
 package com.example.travelhacking;
 
+import android.support.annotation.NonNull;
 import android.widget.ArrayAdapter;
 
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -39,5 +41,73 @@ import com.google.firebase.database.ValueEventListener;
             Core.ccCustomAdapter.notifyDataSetChanged();
         }
 
+// Encapsulates the code for setting up the Listeners for CreditCards and Loyalty Programs
+        public static void dbListener()
+        {
+            Core.cards.addValueEventListener(new ValueEventListener()
+            {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot)
+                {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    if (Core.ccfirstrun ==1) {
+
+                        for(DataSnapshot ds : dataSnapshot.getChildren())
+                        {
+                            //de-serialize the card
+                            Card tempCC = ds.getValue(Card.class);
+                            Core.addCreditCard(tempCC);
+                        }
+                        Core.ccfirstrun = 0;
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+            Core.programs.addValueEventListener(new ValueEventListener()
+            {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot)
+                {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    if (Core.pfirstrun == 1) {
+
+                        for(DataSnapshot ds : dataSnapshot.getChildren())
+                        {
+                            //de-serialize the card
+                            Program tempp = ds.getValue(Program.class);
+                            Core.addLoyaltyProgram(tempp);
+                        }
+
+                        Core.pfirstrun =0;
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+        public  static void addCreditCardDB(Card c)
+        {
+            Core.cards.push().setValue(c);
+
+        }
+        public static void addLoyaltyProgramDB(Program p)
+        {
+            Core.programs.push().setValue(p);
+
+        }
     }
 

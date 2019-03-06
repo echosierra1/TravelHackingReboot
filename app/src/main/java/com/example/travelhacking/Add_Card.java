@@ -35,7 +35,7 @@ public class Add_Card extends AppCompatActivity {
 
         Card c = new Card(CardName,CardStartDate,MinSpend,RewardPoints);
         Core.addCreditCard(c);
-        Core.cards.push().setValue(c);
+        Core.addCreditCardDB(c);
         this.finish();
     }
 

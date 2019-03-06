@@ -21,60 +21,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Core.cards.addValueEventListener(new ValueEventListener()
-        {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                if (Core.ccfirstrun ==1) {
-
-                    for(DataSnapshot ds : dataSnapshot.getChildren())
-                    {
-                        //de-serialize the card
-                        Card tempCC = ds.getValue(Card.class);
-                        Core.addCreditCard(tempCC);
-                    }
-                    Core.ccfirstrun = 0;
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        Core.programs.addValueEventListener(new ValueEventListener()
-        {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                if (Core.pfirstrun == 1) {
-
-                    for(DataSnapshot ds : dataSnapshot.getChildren())
-                    {
-                        //de-serialize the card
-                        Program tempp = ds.getValue(Program.class);
-                        Core.addLoyaltyProgram(tempp);
-                    }
-
-                    Core.pfirstrun =0;
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+// Sets up event listeners for Credit Cards and Loyalty Programs from firebase DB
+        Core.dbListener();
 
 
 // Creates list views for the credit cards and programs using their custom adapters.
