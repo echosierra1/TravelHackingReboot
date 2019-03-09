@@ -23,11 +23,14 @@ import com.google.firebase.database.ValueEventListener;
         public static FirebaseDatabase database = FirebaseDatabase.getInstance();
         public static DatabaseReference cards = database.getReference("cards");
         public static DatabaseReference programs = database.getReference("programs");
-        public static int ccfirstrun = 1;
-        public static int pfirstrun = 1;
+
+// Selected Card for update or delete screens
+        public static Card currentSelectedCard = null;
+        public static Program currentSelectedProgram = null;
 
 
-// Encapsulates the code for adding a Loyalty Program.
+
+        // Encapsulates the code for adding a Loyalty Program.
         public static void addLoyaltyProgram(Program p)
         {
             Core.theProgramsLL.addEnd(p);
@@ -39,6 +42,7 @@ import com.google.firebase.database.ValueEventListener;
         {
             Core.theCreditCardsLL.addEnd(c);
             Core.ccCustomAdapter.notifyDataSetChanged();
+
         }
 
 // Encapsulates the code for setting up the Listeners for CreditCards and Loyalty Programs
@@ -49,19 +53,17 @@ import com.google.firebase.database.ValueEventListener;
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot)
                 {
+                    Core.theCreditCardsLL.removeAll();
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
-                    if (Core.ccfirstrun ==1) {
 
                         for(DataSnapshot ds : dataSnapshot.getChildren())
                         {
                             //de-serialize the card
                             Card tempCC = ds.getValue(Card.class);
+                            tempCC.setKey(ds.getKey());
                             Core.addCreditCard(tempCC);
                         }
-                        Core.ccfirstrun = 0;
-
-                    }
 
                 }
 
@@ -76,20 +78,18 @@ import com.google.firebase.database.ValueEventListener;
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot)
                 {
+                    Core.theProgramsLL.removeAll();
+
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
-                    if (Core.pfirstrun == 1) {
 
                         for(DataSnapshot ds : dataSnapshot.getChildren())
                         {
                             //de-serialize the card
                             Program tempp = ds.getValue(Program.class);
+                            tempp.setKey(ds.getKey());
                             Core.addLoyaltyProgram(tempp);
                         }
-
-                        Core.pfirstrun =0;
-
-                    }
 
                 }
 

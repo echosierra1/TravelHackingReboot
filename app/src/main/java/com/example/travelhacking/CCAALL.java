@@ -55,10 +55,10 @@ public class CCAALL extends ArrayAdapter
 // gives the credit card payload from the linked list.
         Card cc = this.creditCardList.getAtIndex(position);
 
-        ccName.setText(cc.getCreditName());
-        ccStartDate.setText(cc.getStart_date());
-        ccMinSpend.setText("" + cc.getMin_spend());
-        ccBonusPoints.setText("" + cc.getPoint_bonus());
+        ccName.setText(cc.Name);
+        ccStartDate.setText(cc.Date);
+        ccMinSpend.setText("" + cc.Spend);
+        ccBonusPoints.setText("" + cc.points);
         //return the View after we have set all of the values
         return listItem;
     }

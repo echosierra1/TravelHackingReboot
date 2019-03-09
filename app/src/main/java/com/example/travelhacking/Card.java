@@ -1,5 +1,6 @@
 package com.example.travelhacking;
 
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
 import java.io.Serializable;
@@ -11,6 +12,8 @@ public class Card implements Serializable
     public String  Date;
     public int     Spend;
     public int     points;
+    private String key;
+    private DatabaseReference ref;
 
     public Card(String Name, String Date, int Spend, int points)
     {
@@ -23,24 +26,21 @@ public class Card implements Serializable
     {
 
     }
-    @Exclude
-    public String getCreditName()
-    {
-        return Name;
-    }
-    @Exclude
-    public String getStart_date() {
-        return Date;
-    }
-    @Exclude
-    public int getMin_spend() {
-        return Spend;
-    }
-    @Exclude
-    public int getPoint_bonus() {
-        return points;
-    }
 
+
+    public void setKey(String key) {
+        this.key = key;
+        this.ref = Core.cards.child(this.key);
+
+    }
+    public void save()
+    {
+        this.ref.setValue(this);
+    }
+    public void delete()
+    {
+        this.ref.removeValue();
+    }
 
     public String toString()
     {

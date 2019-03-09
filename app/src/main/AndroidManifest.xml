@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Add_Loyalty"></activity>
+        <activity android:name=".Edit_program"></activity>
+        <activity android:name=".edit_cc" />
+        <activity android:name=".Add_Loyalty" />
         <activity android:name=".Add_Card" />
         <activity android:name=".MainActivity">
             <intent-filter>

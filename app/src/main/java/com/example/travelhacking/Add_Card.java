@@ -34,7 +34,6 @@ public class Add_Card extends AppCompatActivity {
         int RewardPoints = Integer.parseInt(this.RewardPoints.getText().toString());
 
         Card c = new Card(CardName,CardStartDate,MinSpend,RewardPoints);
-        Core.addCreditCard(c);
         Core.addCreditCardDB(c);
         this.finish();
     }

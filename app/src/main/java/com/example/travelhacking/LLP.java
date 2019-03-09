@@ -7,8 +7,17 @@ public class LLP
 // Default Node
     public LLP()
     {
+     this.init();
+    }
+    private void init()
+    {
         this.head = null;
         this.count = 0;
+    }
+
+    public void removeAll()
+    {
+        this.init();
     }
 // Returns length of the Linked List.
     public int length()
