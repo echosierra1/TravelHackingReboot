@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "112969659089",
+    "firebase_url": "https://travelhacking-bf813.firebaseio.com",
+    "project_id": "travelhacking-bf813",
+    "storage_bucket": "travelhacking-bf813.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112969659089:android:1dd4368eff405ca7",
+        "android_client_info": {
+          "package_name": "com.example.travelhacking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112969659089-mqepbqaf1f6hg1nm5av1ea5hhran7ep2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelhacking",
+            "certificate_hash": "bbaa460a00de520d08e66b1d57fdfd28d0338401"
+          }
+        },
+        {
+          "client_id": "112969659089-mf3qkl1cj0958iaq6uvmcobdb45fh64n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8HCRxwBs-5nEDKscnk_KXUaABdbNhrSU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112969659089-mf3qkl1cj0958iaq6uvmcobdb45fh64n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
