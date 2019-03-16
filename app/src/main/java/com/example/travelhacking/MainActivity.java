@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        NetworkingthreadLoad nt = new NetworkingthreadLoad();
+//        nt.start();
+
         this.myContext = this;
 // Sets up event listeners for Credit Cards and Loyalty Programs from firebase DB
         Core.dbListener();
@@ -26,15 +30,16 @@ public class MainActivity extends AppCompatActivity
 
 // Creates list views for the credit cards and programs using their custom adapters.
 
-
         this.ccLV = (ListView)this.findViewById(R.id.ccLV);
         Core.ccCustomAdapter = new CCAALL(this, R.layout.creditcardrow, Core.theCreditCardsLL);
         this.ccLV.setAdapter(Core.ccCustomAdapter);
 
-
         this.pLV = (ListView)this.findViewById(R.id.pLV);
         Core.pCustomAdapter = new PAALL(this, R.layout.programrow, Core.theProgramsLL);
         this.pLV.setAdapter(Core.pCustomAdapter);
+
+// Allows for the Credit Cards and Programs listviews to be clickable and start a new activity
+// the new activity calls myContext to allows for activities to be started.
 
         this.ccLV.setClickable(true);
         this.ccLV.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -76,6 +81,11 @@ public class MainActivity extends AppCompatActivity
     public void onAddLoyaltyPress(View v)
     {
         Intent i = new Intent(this, Add_Loyalty.class);
+        this.startActivity(i);
+    }
+    public void onAirportListButtonPressed(View v)
+    {
+        Intent i = new Intent(this, AirportList.class);
         this.startActivity(i);
     }
 }

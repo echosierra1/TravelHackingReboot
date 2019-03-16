@@ -1,15 +1,18 @@
 package com.example.travelhacking;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 // This class creates a second screen that will take the 3 edittext information pieces and create a
 // local object Program with the entered information. This object is saved to a loyalty program
-// Linked List.
+// references in the firebase database.
 public class Edit_program extends AppCompatActivity {
 
     private EditText LoyaltyName,  BankAffiliation, CurrentBalance;
+    private edit_cc editprogram;
 
 
     @Override
@@ -29,18 +32,27 @@ public class Edit_program extends AppCompatActivity {
 
     public void onDeleteButtonPressed(View v)
     {
-        Core.currentSelectedProgram.delete();
-        this.finish();
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setMessage("Are you sure?");
+        dialog.setTitle("WARNING!!!");
+        dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Core.currentSelectedProgram.delete();
+                editprogram.finish();
+            }
+        });
+        dialog.setNegativeButton("No", null);
+        dialog.show();
+
     }
 
     public void onUpdateButtonPressed(View v)
     {
-        String LoyaltyName = this.LoyaltyName.getText().toString();
-        String BankAffiliation = this.BankAffiliation.getText().toString();
-        int CurrentBalance = Integer.parseInt(this.CurrentBalance.getText().toString());
-        Core.currentSelectedProgram.delete();
-        Program p = new Program(LoyaltyName,BankAffiliation,CurrentBalance);
-        Core.addLoyaltyProgramDB(p);
+        Core.currentSelectedProgram.Name = this.LoyaltyName.getText().toString();
+        Core.currentSelectedProgram.Bank = this.BankAffiliation.getText().toString();
+        Core.currentSelectedProgram.Balance = Integer.parseInt(this.CurrentBalance.getText().toString());
+        Core.currentSelectedProgram.save();
         this.finish();
 
     }

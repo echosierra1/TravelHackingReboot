@@ -9,6 +9,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
+import java.util.LinkedList;
+
 // Core class for storing global values and encapsulating Linked List creation.
     public class Core
     {
@@ -19,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
         public static LLP theProgramsLL = new LLP();
         public static PAALL pCustomAdapter;
 
+
 // Set up writing a message to the database
         public static FirebaseDatabase database = FirebaseDatabase.getInstance();
         public static DatabaseReference cards = database.getReference("cards");
@@ -28,6 +32,9 @@ import com.google.firebase.database.ValueEventListener;
         public static Card currentSelectedCard = null;
         public static Program currentSelectedProgram = null;
 
+        public static LinkedList<String> flights = new LinkedList<String>();
+        public static String airportcode = null;
+        public static int done = 0;
 
 
         // Encapsulates the code for adding a Loyalty Program.

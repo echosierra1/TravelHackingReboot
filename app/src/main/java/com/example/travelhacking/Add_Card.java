@@ -25,7 +25,7 @@ public class Add_Card extends AppCompatActivity {
 
     // This function creates the Card object by converting the edit texts to strings and ints,
     // saving them to a Card object built from the card class,
-    // and calls Core to save Card to a linked list.
+    // and calls Core to save Card to the firebase database.
     public void onAddCard(View v)
     {
         String CardName = this.CardName.getText().toString();

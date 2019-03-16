@@ -22,21 +22,28 @@ public class Card implements Serializable
         this.Spend = Spend;
         this.points = points;
     }
+// Empty Class for serialization
     public Card()
     {
 
     }
 
+// Allows for firebase references to be stored for update.
 
     public void setKey(String key) {
         this.key = key;
         this.ref = Core.cards.child(this.key);
 
     }
+
+
+// Saved Record to firebase
     public void save()
     {
         this.ref.setValue(this);
     }
+//Delete record from firebase
+
     public void delete()
     {
         this.ref.removeValue();

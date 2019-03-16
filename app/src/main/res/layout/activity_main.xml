@@ -38,6 +38,13 @@
             android:textStyle="bold"
             tools:text="Add Loyalty" />
 
+        <Button
+            android:id="@+id/Airports"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onAirportListButtonPressed"
+            android:text="Airports" />
+
         <ListView
             android:id="@+id/ccLV"
             android:layout_width="match_parent"
