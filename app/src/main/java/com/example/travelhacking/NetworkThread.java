@@ -49,6 +49,7 @@ public class NetworkThread extends Thread
                     afterIndex = part.indexOf(afterVal, beforeIndex);
 //                    System.out.println("***" + part.substring(beforeIndex, afterIndex));
                     Core.flights.add(part.substring(beforeIndex,afterIndex));
+
                 }
             }
             Core.done = 1;

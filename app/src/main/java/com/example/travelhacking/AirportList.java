@@ -23,6 +23,7 @@ public class AirportList extends AppCompatActivity
     private ListView airport;
     private LinkedList<String> theAirportStrings = new LinkedList<String>();
     private LinkedList<Airport> theAirports = new LinkedList<Airport>();
+    private LinkedList<Airport> filteredairports = new LinkedList<Airport>();
     private ArrayAdapter<String> aa;
     private EditText filter;
     private AirportList myContext;
@@ -45,12 +46,14 @@ public class AirportList extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long row_id)
             {
-                Airport selectedairport = theAirports.get(position);
+                Airport selectedairport = filteredairports.get(position);
                 Core.airportcode = selectedairport.airportCode;
                 Core.airportcode = Core.airportcode.replaceAll("\"", "");
                 NetworkThread nt = new NetworkThread(Core.airportcode);
+                nt.setPriority(Thread.MAX_PRIORITY);
                 nt.start();
                 Intent in = new Intent(myContext, directflights.class);
+                in.putExtra("airportcode", selectedairport.airportCode);
                 myContext.startActivity(in);
 
             }
@@ -83,11 +86,14 @@ public class AirportList extends AppCompatActivity
     {
         String filterString = this.filter.getText().toString();
         this.theAirportStrings.clear();
+        this.filteredairports.clear();
         for(Airport a : this.theAirports)
         {
             if(a.filterApplies(filterString))
             {
                 this.theAirportStrings.add(a.toString());
+                this.filteredairports.add(a);
+
             }
         }
      aa.notifyDataSetChanged();
