@@ -4,33 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".directflights">
+    tools:context=".directflightsMonths">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <Button
-            android:id="@+id/ReloadCache"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onReloadCacheButtonPressed"
-            android:text="Reload Cache" />
-
-        <Button
-            android:id="@+id/Itinerary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onDisplayItineraryButtonPressed"
-            android:text="Itinerary" />
-
-        <Button
-            android:id="@+id/Month"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onMonthButtonPressed"
-            android:text="View Flights by Month" />
 
         <TextView
             android:id="@+id/Airporrtcode"

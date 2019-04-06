@@ -35,7 +35,9 @@ import java.util.LinkedList;
         public static LinkedList<String> flights = new LinkedList<String>();
         public static LinkedList<Airport> airportll = new LinkedList<Airport>();
         public static String airportcode = null;
+        public static String month = null;
         public static int done = 0;
+        public static ItineraryStack currentItinerary = new ItineraryStack();
 
 
         // Encapsulates the code for adding a Loyalty Program.

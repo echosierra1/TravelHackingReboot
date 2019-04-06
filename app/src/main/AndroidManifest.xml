@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".directflights"></activity>
+        <activity android:name=".directflightsMonths"></activity>
+        <activity android:name=".Months" />
+        <activity android:name=".Itinerary" />
+        <activity android:name=".directflights" />
         <activity android:name=".Airportrow" />
         <activity android:name=".AirportList" />
         <activity android:name=".Edit_program" />

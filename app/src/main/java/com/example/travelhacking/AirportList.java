@@ -49,11 +49,11 @@ public class AirportList extends AppCompatActivity
                 Airport selectedairport = filteredairports.get(position);
                 Core.airportcode = selectedairport.airportCode;
                 Core.airportcode = Core.airportcode.replaceAll("\"", "");
-                NetworkThread nt = new NetworkThread(Core.airportcode);
-                nt.setPriority(Thread.MAX_PRIORITY);
-                nt.start();
+
                 Intent in = new Intent(myContext, directflights.class);
-                in.putExtra("airportcode", selectedairport.airportCode);
+                in.putExtra("airportCode", selectedairport.airportCode);
+                in.putExtra("cityName", selectedairport.city.replaceAll("\"", ""));
+                Core.currentItinerary.push(selectedairport.city.replaceAll("\"", "") + " " + Core.airportcode);
                 myContext.startActivity(in);
 
             }
@@ -98,4 +98,5 @@ public class AirportList extends AppCompatActivity
         }
      aa.notifyDataSetChanged();
     }
+
 }
