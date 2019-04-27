@@ -37,8 +37,8 @@ public class AirportDestinationThreadMonths extends Thread
 
         try
         {
-            URL airportURL = new URL("https://www.flightsfrom.com/" + airportCode + "/destinations?Method=dateFrom=2019-" + Month + "&dateTo=2019-" + Month);
-                 System.out.println("***https://www.flightsfrom.com/" + airportCode + "/destinations?Method=dateFrom=2019-" + Month + "&dateTo=2019-" + Month);
+            URL airportURL = new URL("https://www.flightsfrom.com/" + airportCode + "/destinations?Method=dateFrom=2019-" + Month + "-1&dateTo=2019-" + Month +"-31");
+                // System.out.println("***https://www.flightsfrom.com/" + airportCode + "/destinations?Method=dateFrom=2019-" + Month + "&dateTo=2019-" + Month);
 
             HttpURLConnection conn = (HttpURLConnection)airportURL.openConnection();
             Scanner input = new Scanner(conn.getInputStream());
