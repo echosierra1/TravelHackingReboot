@@ -55,7 +55,8 @@ public class ItineraryStack
         }
     }
 
-    public String print(){
+    public String print()
+    {
         String itinerary="";
         ItineraryStackNode currNode = this.top;
         while(currNode != null)
