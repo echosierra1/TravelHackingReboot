@@ -65,11 +65,17 @@ public class AirportList extends AppCompatActivity
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
                 Airport temp;
-                for(DataSnapshot ds : dataSnapshot.getChildren())
+                int firsttime =0;
+                for(DataSnapshot ds  : dataSnapshot.getChildren())
                 {
                     temp = ds.getValue(Airport.class);
                     theAirports.add(temp);
                     theAirportStrings.add(temp.toString());
+                    if(firsttime ==1){
+                        String Airportcode = temp.airportCode;
+                        Core.bst.addValue(Airportcode);
+                    }
+                   firsttime=1;
                 }
                 aa.notifyDataSetChanged();
             }
@@ -97,6 +103,16 @@ public class AirportList extends AppCompatActivity
             }
         }
      aa.notifyDataSetChanged();
+    }
+
+    public void onBSTButtonPressed(View v)
+    {
+
+        Intent i = new Intent(myContext, BTree.class);
+        i.putExtra("apc", Core.bst.visitRoot());
+        startActivity(i);
+
+
     }
 
 }

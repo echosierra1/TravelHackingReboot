@@ -17,6 +17,13 @@
             android:layout_height="wrap_content"
             android:text="Airport List" />
 
+        <Button
+            android:id="@+id/BTree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onBSTButtonPressed"
+            android:text="Airport List BTree" />
+
         <EditText
             android:id="@+id/filter"
             android:layout_width="match_parent"

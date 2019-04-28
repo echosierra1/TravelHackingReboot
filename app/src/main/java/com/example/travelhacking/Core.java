@@ -23,6 +23,8 @@ import java.util.LinkedList;
         public static PAALL pCustomAdapter;
 
 
+        public static BST bst = new BST();
+
 // Set up writing a message to the database
         public static FirebaseDatabase database = FirebaseDatabase.getInstance();
         public static DatabaseReference cards = database.getReference("cards");
