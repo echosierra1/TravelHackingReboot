@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".BTree"></activity>
+        <activity android:name=".yelpDetails"></activity>
+        <activity android:name=".Restaurants" />
+        <activity android:name=".BTree" />
         <activity android:name=".directflightsMonths" />
         <activity android:name=".Months" />
         <activity android:name=".Itinerary" />

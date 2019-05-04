@@ -15,6 +15,7 @@ import java.util.LinkedList;
 public class BTree extends AppCompatActivity {
     private ArrayAdapter<String> aa;
     private TextView Airport;
+    private TextView CityState;
     private LinkedList<String> theAirportCodeStrings = new LinkedList<String>();
     private Button LeftChildButton;
     private Button RightChildButton;
@@ -30,14 +31,16 @@ public class BTree extends AppCompatActivity {
         this.myContext = this;
 
         this.Airport = this.findViewById(R.id.Airport);
-        this.Airport.setText(this.getIntent().getStringExtra("apc"));
+        this.Airport.setText(Core.curtree.payload.airportCode);
         this.LeftChildButton = this.findViewById(R.id.LeftChildButton);
         this.RightChildButton = this.findViewById(R.id.RightChildButton);
-        if (Core.bst.visitLeftChild().compareTo("")== 0)
+        this.CityState = this.findViewById(R.id.CityState);
+        this.CityState.setText(Core.curtree.payload.city + ", " + Core.curtree.payload.region.split("-")[1]);
+        if (Core.curtree.leftChild == null)
         {
             LeftChildButton.setVisibility(View.GONE);
         }
-        if (Core.bst.visitRightChild().compareTo("") == 0)
+        if (Core.curtree.getRightChild() == null)
         {
             RightChildButton.setVisibility(View.GONE);
         }
@@ -47,16 +50,22 @@ public class BTree extends AppCompatActivity {
     public void onLeftChildPress(View v)
     {
         Intent i = new Intent(myContext, BTree.class);
-        i.putExtra("apc", Core.bst.visitLeftChild());
+        Core.curtree = Core.curtree.getLeftChild();
         startActivity(i);
     }
     public void onRightChildPress(View v)
     {
         Intent i = new Intent(myContext, BTree.class);
-        i.putExtra("apc", Core.bst.visitRightChild());
+        Core.curtree = Core.curtree.getRightChild();
         startActivity(i);
     }
 
+    public void onYelpButtonClicked(View V)
+    {
+        Intent i = new Intent(myContext, Restaurants.class);
+        startActivity(i);
+
+    }
 
 
 }

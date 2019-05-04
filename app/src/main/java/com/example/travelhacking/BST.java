@@ -2,7 +2,7 @@ package com.example.travelhacking;
 
 public class BST
 {
-    private BSTNode root;
+    public BSTNode root;
 
     public BST()
     {
@@ -14,7 +14,7 @@ public class BST
         String temp  = "";
 
         if(this.root != null)
-        this.root.visitLeftChild();
+            this.root.visitLeftChild();
         return temp;
 
     }
@@ -22,8 +22,9 @@ public class BST
     {
         String temp  = "";
         if(this.root != null)
-        temp = this.root.visitRightChild();
-        return temp;
+            this.root.visitRightChild();
+        return temp
+        ;
 
     }
     public String visitRoot()
@@ -35,7 +36,7 @@ public class BST
    }
 
 
-    public void addValue(String payload)
+    public void addValue(Airport payload)
     {
         BSTNode n = new BSTNode(payload);
         if(this.root == null)

@@ -24,8 +24,12 @@ import java.util.LinkedList;
 
 
         public static BST bst = new BST();
+        public static BSTNode curtree = new BSTNode(null);
+        public static LinkedList<eatery> eatery = new LinkedList<eatery>();
+        public static eatery selectedeatery = null;
 
-// Set up writing a message to the database
+
+        // Set up writing a message to the database
         public static FirebaseDatabase database = FirebaseDatabase.getInstance();
         public static DatabaseReference cards = database.getReference("cards");
         public static DatabaseReference programs = database.getReference("programs");

@@ -2,12 +2,12 @@ package com.example.travelhacking;
 
 public class BSTNode
 {
-    private String payload;
-    private BSTNode leftChild;
-    private BSTNode rightChild;
+    public Airport payload;
+    public BSTNode leftChild;
+    public BSTNode rightChild;
 
 
-    public BSTNode (String payload)
+    public BSTNode (Airport payload)
     {
         this.payload = payload;
         this.leftChild = null;
@@ -29,13 +29,13 @@ public class BSTNode
     }
     public String visitRoot()
     {
-        return payload;
+        return payload.airportCode;
     }
 
     public void addNode(BSTNode n)
     {
 
-        if(n.getPayload().compareTo(this.payload)>= 0)
+        if(n.getPayload().compareTo(this.payload.airportCode)>= 0)
         {
             if(this.leftChild == null)
             {
@@ -60,7 +60,7 @@ public class BSTNode
     }
 
     public String getPayload() {
-        return payload;
+        return payload.airportCode;
     }
 
     public BSTNode getLeftChild() {

@@ -21,9 +21,18 @@
             android:textSize="36sp"
             tools:text="Airport" />
 
+        <TextView
+            android:id="@+id/CityState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="City State"
+            android:textSize="24sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="473dp"
+            android:layout_height="272dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -43,6 +52,14 @@
                 android:onClick="onRightChildPress"
                 android:text="Right" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/Yelp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onYelpButtonClicked"
+            android:text="Yelp Restaurants" />
 
     </LinearLayout>
 

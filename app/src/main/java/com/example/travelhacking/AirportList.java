@@ -46,11 +46,11 @@ public class AirportList extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long row_id)
             {
-                Airport selectedairport = filteredairports.get(position);
+                Intent in = new Intent(myContext, directflights.class);
+                Airport selectedairport = myContext.filteredairports.get(position);
                 Core.airportcode = selectedairport.airportCode;
                 Core.airportcode = Core.airportcode.replaceAll("\"", "");
 
-                Intent in = new Intent(myContext, directflights.class);
                 in.putExtra("airportCode", selectedairport.airportCode);
                 in.putExtra("cityName", selectedairport.city.replaceAll("\"", ""));
                 Core.currentItinerary.push(selectedairport.city.replaceAll("\"", "") + " " + Core.airportcode);
@@ -65,17 +65,15 @@ public class AirportList extends AppCompatActivity
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
                 Airport temp;
-                int firsttime =0;
+
+
                 for(DataSnapshot ds  : dataSnapshot.getChildren())
                 {
                     temp = ds.getValue(Airport.class);
                     theAirports.add(temp);
                     theAirportStrings.add(temp.toString());
-                    if(firsttime ==1){
-                        String Airportcode = temp.airportCode;
-                        Core.bst.addValue(Airportcode);
-                    }
-                   firsttime=1;
+                    Core.bst.addValue(temp);
+
                 }
                 aa.notifyDataSetChanged();
             }
@@ -109,9 +107,8 @@ public class AirportList extends AppCompatActivity
     {
 
         Intent i = new Intent(myContext, BTree.class);
-        i.putExtra("apc", Core.bst.visitRoot());
+        Core.curtree = Core.bst.root;
         startActivity(i);
-
 
     }
 
